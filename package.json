@@ -1,0 +1,37 @@
+{
+  "name": "fe-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types",
+    
+    "dev:admin": "turbo run dev --filter=admin",
+    "build:admin": "turbo run build --filter=admin",
+    "start:admin": "npm run preview --workspace=admin",
+
+    "dev:customer": "turbo run dev --filter=customer",
+    "build:customer": "turbo run build --filter=customer",
+    "start:customer": "npm run preview --workspace=customer"
+  },
+  "devDependencies": {
+    "prettier": "3.9.6",
+    "turbo": "^2.11.10",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": "11.20.0"
+    }
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
